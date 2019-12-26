@@ -1,0 +1,35 @@
+Java SAX parser remidiation -- https://dev.to/brianverm/configure-your-java-xml-parsers-to-prevent-xxe-213c
+----------------------------
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE bar [
+       <!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+<song>
+   <artist>&xxe;</artist>
+   <title>Bohemian Rhapsody</title>
+   <album>A Night at the Opera</album>
+</song>
+
+----------------------------
+SAXParserFactory factory = SAXParserFactory.newInstance();
+SAXParser saxParser = factory.newSAXParser();
+
+DefaultHandler handler = new DefaultHandler() {
+
+    public void startElement(String uri, String localName,String qName,Attributes attributes) throws SAXException {
+        System.out.println(qName);
+    }
+
+    public void characters(char ch[], int start, int length) throws SAXException {
+        System.out.println(new String(ch, start, length));
+    }
+};
+-----------------------------
+Remidiation
+...
+SAXParserFactory factory = SAXParserFactory.newInstance();
+SAXParser saxParser = factory.newSAXParser();
+
+factory.setFeature("https://xml.org/sax/features/external-general-entities", false);
+saxParser.getXMLReader().setFeature("https://xml.org/sax/features/external-general-entities", false);
+factory.setFeature("https://apache.org/xml/features/disallow-doctype-decl", true); 
+------------------------------
