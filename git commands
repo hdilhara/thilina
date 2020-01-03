@@ -28,3 +28,23 @@ git remove -fd <mention files if want>
 merge a branch to master branch
 //first checkout to master and
 git merge <branch name>
+
+
+අපි commit නොකර branch eken checkout උනාට අපෙ changes ටික නැතුව යන්නෙ නෑ
+අපි commit කරන branch එකට තම‍යි අපේ cahnges ටික අ‍යිති වෙන්නේ
+git status
+git add ./* <-----stage
+git commit -a -m"your message "
+
+අපි loacally branch එක create කලාට ඒක remotely create වෙලා නෑ
+මුලින්ම branch එක හැදුවට පස්සේ remotely ත් එක create කරන්න
+git push -u origin <branch name>
+
+get the difference of two branches
+git diff master <branch name>
+
+what is a pull request?
+pull request is showes up the changes between master and current branch 
+based on latest commit .
+so seneior engineer can look at the changes as well as he can see  the conflicts 
+and he can fix the conflicts also and merge to master branch.
