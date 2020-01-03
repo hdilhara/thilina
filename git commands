@@ -1,0 +1,30 @@
+git checkout master
+
+//update with remote repository 
+//but we created files are not effected(keep them as we edited)
+//only add remote repo aditional files 
+git pull
+
+
+git branch <new branch name>
+git checkout -B <new breanch name>
+
+git branch <------ list all local branches
+git branch -a <-------list all local & remote branches
+git -D <branch name> <-------remove branch
+git checkeout <branch name or commit hash code>   <----- we can also go to previous commit
+//get the rid of unwanted files and directories 
+git status  
+git remove -fd <mention files if want>
+
+
+git log -10 <---show last 10 commit log 
+git checkeout <commit hash code>   <----- we can also go to previous commit
+//get the rid of unwanted files and directories 
+git status  
+git remove -fd <mention files if want>
+
+
+merge a branch to master branch
+//first checkout to master and
+git merge <branch name>
