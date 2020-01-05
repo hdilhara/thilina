@@ -1,4 +1,7 @@
-Java SAX parser remidiation -- https://dev.to/brianverm/configure-your-java-xml-parsers-to-prevent-xxe-213c
+1)Java SAX parser remidiation
+2)javax.xml.transform TransformFactory remediation
+
+1)Java SAX parser remidiation -- https://dev.to/brianverm/configure-your-java-xml-parsers-to-prevent-xxe-213c
 ----------------------------
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE bar [
@@ -33,3 +36,13 @@ factory.setFeature("https://xml.org/sax/features/external-general-entities", fal
 saxParser.getXMLReader().setFeature("https://xml.org/sax/features/external-general-entities", false);
 factory.setFeature("https://apache.org/xml/features/disallow-doctype-decl", true); 
 ------------------------------
+
+============================================================================================================================================
+2)javax.xml.transform TransformFactory remediation --->  https://stackoverflow.com/questions/40649152/how-to-prevent-xxe-attack
+
+
+TransformerFactory tf = TransformerFactory.newInstance();
+tf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);  <=========After new instance of tf we enable secure processing
+----Rest of the code
+Transformer transformer = tf.newTransformer();
+
