@@ -1,5 +1,5 @@
 cwe-316
-
+Cryptographic issue
 ========>>>use char array instead of String to save sensitive data
 char[] password=new char[5];
 ch[0]=p;ch[1]=a;ch[2]=s;ch[3]=s;ch[4]=w;ch[5]=o;
