@@ -1,0 +1,8 @@
+URL encoded form of 
+
+CR ---> %0d
+LF ---> %0a
+
+http header & payload is divided by
+ 
+ CRLFCRLF ---> %0d%0a%0d%0a
