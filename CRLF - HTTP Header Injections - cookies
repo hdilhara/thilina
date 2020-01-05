@@ -1,4 +1,4 @@
-URL encoded form of 
+URL encoded form of CRLF
 
 CR ---> %0d
 LF ---> %0a
@@ -6,3 +6,19 @@ LF ---> %0a
 http header & payload is divided by
  
  CRLFCRLF ---> %0d%0a%0d%0a
+===========================================
+CRLF- cariage return line feed
+CRLF is use to divde a line by adding new line.(in java CR--> \r  &     LF--> \n)
+
+CRLF is need to be considered when we are executing system (cmd/terminal) based commands
+
+linux and mac OS understand new line by -LF(java-\n)
+command=str1+"\n"+str2;
+
+windows understand new Line by -CRLF(java-\r\n)
+command=str1+"\r\n"+str2;
+
+old mac OS uses -CR(java-\r)
+===========================================
+Using Platform-Independent Line Breaks
+command = line1 + System.lineSeparator() + line2;
